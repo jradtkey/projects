@@ -1,0 +1,22 @@
+a{
+  font-size: 1.5em;
+}
+
+.container {
+  border: 1.5px solid grey;
+  background: #e8e8e8;
+}
+
+input{
+  width: 80%;
+  border-radius: 4px;
+  border-style: none;
+}
+
+#search {
+  display: inline-block;
+}
+
+button {
+  margin: 2% 0% 2% 0%;
+}

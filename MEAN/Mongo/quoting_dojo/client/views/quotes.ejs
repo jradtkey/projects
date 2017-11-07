@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quotes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <style media="screen">
+      .wrapper{
+        padding: 3% 5% 3% 5%;
+      }
+      #quote{
+        width: 30%;
+        height: 150px;
+      }
+      h1{
+        font-size: 3.5em;
+      }
+      p{
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <h1>Here are the awesome quotes!</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <% data.forEach(function(data) { %>
+            <h3>Quote: "<%= data.quote %>"</h3>
+            <p>- <%= data.name %> at <%= data.updated_at %></p>
+            <hr>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,8 @@
+.wrapper {
+  margin: 3% 10% 3% 10%;
+  padding-top: 15%;
+  width: 80%;
+  height: 500px;
+  border: 1px solid #333333;
+  text-align: center;
+}

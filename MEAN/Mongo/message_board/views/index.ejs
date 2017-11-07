@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style media="screen">
+      .wrapper{
+        padding: 3% 5% 3% 5%;
+      }
+      h1{
+        font-size: 3.5em;
+      }
+      #nav{
+        border-bottom: 1px solid grey;
+      }
+      #input{
+        width: 25%;
+        height: 150px;
+      }
+      label{
+        font-size: 2em;
+      }
+      #messages{
+        float: right;
+      }
+      #commentInput{
+        width: 33%;
+        height: 100px;
+      }
+      #label{
+        font-size: 1.5em;
+      }
+      .comments{
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+
+    <% if(typeof(errors) != 'undefined' ) { %>
+      <% for (var x in errors) { %>
+       <h3><%= errors[x].message %></h3>
+      <% } %>
+    <% } %>
+
+    <div class="wrapper">
+
+      <div class="row" id="nav">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <h1>The Dojo Message Board</h1>
+        </div>
+      </div><br>
+
+      <div class="row">
+        <div class="col">
+          <form class="" action="/addMessage" method="post">
+            <label>Name: </label><br>
+            <input type="text" name="name" value=""><br>
+
+            <label>Message: </label><br>
+            <input id="input" type="text" name="message" value="" required><br><br>
+            <button type="submit" class="btn btn-primary">Post a Message</button>
+          </form>
+        </div>
+      </div>
+
+
+      <div class="row" id="messages">
+        <div class="col-sm-10 col-md-10 col-lg-10">
+          <% data.forEach(function(data) { %>
+            <h3>Name: <%= data.name %></h3>
+            <p>Message: <%= data.content %></p>
+
+            <hr>
+
+
+            <% for(var i = 0; i < data.comments.length; i++) { %>
+              <h4>Name: <%= data.comments[i].name %></h4>
+              <p>Comment: <%= data.comments[i].content %></p>
+              <hr>
+            <% }; %>
+            <form action="/addComment/<%= data.id %>" method="post">
+              <label id="label">Name: </label><br>
+              <input type="text" name="name" value="" required><br>
+
+              <label id="label">Comment: </label><br>
+              <input id="commentInput" type="text" name="content" value="" required><br><br>
+              <button type="submit" class="btn btn-primary">Post a Comment</button>
+            </form>
+          <% }); %>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="wrapper">
+
+      <div class="row">
+        <h1>Edit Puppy</h1>
+      </div><br>
+
+      <div class="row">
+
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <form #formData="ngForm" (submit)="onSubmit(formData)">
+            <div class="form-group">
+              <label id="label">Title:&nbsp;</label><br>
+              <input type="text" name="name" required minlength=3 [(ngModel)] = 'product.name' #name="ngModel"><br><br>
+              <span *ngIf="!name.valid && name.dirty">Puppy name required length is 3 characters.<br><br></span>
+              <label id="label">Price:&nbsp;</label><br>
+              <input type="text" name="price" required [(ngModel)] = 'product.price' #price="ngModel"><br><br>
+              <span *ngIf="!price.valid && price.dirty">Puppy price is required.<br><br></span>
+              <label id="label">Image Url:&nbsp;</label><br>
+              <input type="text" name="image" [(ngModel)] = 'product.image' #image="ngModel"><br><br>
+              <button [disabled]="!formData.valid" type="submit" class="btn btn-success">Edit Puppy</button><br><br>
+              <a class="btn btn-danger" (click)="delete()" type="button">Delete Puppy</a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>

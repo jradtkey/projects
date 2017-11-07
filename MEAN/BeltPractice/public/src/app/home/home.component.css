@@ -1,0 +1,17 @@
+body {
+  text-align: center;
+}
+
+label {
+  font-size: 2em;
+}
+
+input {
+  width: 40%;
+  height: 50px;
+}
+
+button {
+  width: 15%;
+  height: 30px;
+}

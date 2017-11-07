@@ -1,0 +1,14 @@
+<div class="row">
+  <a [routerLink]="['dashboard']" id="home">Home</a>
+  <a [routerLink]="['newanswer', question._id]">Answer This Question</a>
+  <a (click)="onClick()" id="logout">Logout</a>
+</div>
+
+<div class="row">
+  <h1>{{question.question}}</h1>
+  <h3>{{question.description}}</h3>
+</div>
+
+<div class="row">
+  This should be answers and votes but I ran out of time.
+</div>

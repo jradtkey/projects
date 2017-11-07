@@ -1,0 +1,17 @@
+h1 {
+  font-size: 3em;
+}
+
+label {
+  font-size: 2em;
+}
+
+input {
+  width: 40%;
+  height: 50px;
+}
+
+button {
+  width: 15%;
+  height: 30px;
+}

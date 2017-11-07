@@ -1,0 +1,20 @@
+<a [routerLink]="['dashboard']">Home</a><br>
+<a (click)="onClick()">Logout</a>
+
+
+<div class="row">
+  <div class="col-sm-6 col-md-6 col-lg-6">
+  <h1>New Question</h1>
+  <form name="formData" #formData="ngForm" (submit)="onSubmit(formData)">
+    <label>Quesiton:&nbsp;</label><br><br>
+    <input name='question' [(ngModel)]='question.question' #question='ngModel' required minlenth=10><br><br>
+
+    <label>Description:&nbsp;</label><br><br>
+    <input name='description' [(ngModel)]='question.description' #description='ngModel'><br><br>
+
+    <button type="submit" name="button" class="btn btn-danger" [routerLink]="['dashboard']">Cancel</button>
+    <button type="submit" name="button" class="btn btn-success" [disabled]="!(question.valid)">Submit</button>
+  </form>
+  </div>
+</div>
+<span *ngIf="!question.valid && question.dirty">Question needs to be 10 characters.<br><br></span>

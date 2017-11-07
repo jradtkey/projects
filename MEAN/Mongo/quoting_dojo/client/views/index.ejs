@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <style media="screen">
+      .wrapper{
+        padding: 3% 5% 3% 5%;
+      }
+      #quote{
+        width: 30%;
+        height: 150px;
+      }
+      h1{
+        font-size: 3.5em;
+      }      
+    </style>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <h1>Welcome to QuotingDojo</h1>
+        </div>
+      </div><br>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <form class="" action="/quotes" method="post">
+            <label>Name:</label><input type="text" name="name" value=""><br><br>
+            <label>Quote:</label><input type="text" name="quote" value="" id="quote"><br><br>
+            <div class="row">
+              <button type="submit" class="btn btn-primary" name="button">Add My Quote!</button>
+              <a href="/showQuotes" class="btn btn-primary" role="button">Skip To Quotes</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+
+    })
+  </script>
+</html>

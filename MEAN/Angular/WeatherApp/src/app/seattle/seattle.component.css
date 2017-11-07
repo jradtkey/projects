@@ -1,0 +1,18 @@
+.wrapper {
+  margin: 3% 10% 3% 10%;
+  padding-top: 5%;
+  width: 80%;
+  height: 500px;
+  border: 1px solid #333333;
+  text-align: center;
+}
+
+#stats {
+  list-style: none;
+  text-align: left;
+}
+
+img{
+  margin-top: 3%;
+  width: 70%;
+}

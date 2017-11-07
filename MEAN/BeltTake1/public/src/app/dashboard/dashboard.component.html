@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="row">
+      <a href="#">Logout</a>
+      <a [routerLink]="['create']">Create Poll</a>
+    </div><br>
+
+    <div class="row">
+      <input placeholder="Search">
+    </div><br>
+
+    <div class="row">
+
+        <table>
+          <tr>
+            <th class="col-sm-2 col-md-2 col-lg-2">Name</th>
+            <th class="col-sm-3 col-md-3 col-lg-3">Survey Question</th>
+            <th class="col-sm-2 col-md-2 col-lg-2">Date Posted</th>
+            <th class="col-sm-2 col-md-2 col-lg-2">Action</th>
+          </tr>
+          <tr *ngFor="let poll of polls">
+            <td class="col-sm-2 col-md-2 col-lg-2">{{poll.user}}</td>
+            <td class="col-sm-3 col-md-3 col-lg-3"><a [routerLink]="['poll', poll._id]">{{poll.question}}</a></td>
+            <td class="col-sm-2 col-md-2 col-lg-2">{{poll.created_at}}</td>
+            <td class="col-sm-2 col-md-2 col-lg-2"></td>
+          </tr>
+
+        </table>
+
+    </div>
+
+
+  </body>
+</html>

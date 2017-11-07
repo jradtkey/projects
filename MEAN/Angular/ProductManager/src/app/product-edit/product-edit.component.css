@@ -1,0 +1,29 @@
+.wrapper {
+  text-align: center;
+}
+
+label {
+  font-size: 1.5em;
+}
+
+input {
+  width: 50%;
+  height: 50px;
+  border-radius: 4px;
+}
+
+button {
+  width: 50%;
+  height: 50px;
+  font-size: 1.5em;
+}
+
+a {
+  width: 50%;
+  height: 50px;
+  font-size: 1.5em;
+}
+
+span {
+  color: red;
+}

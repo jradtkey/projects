@@ -1,0 +1,23 @@
+#top{
+  display: inline-block;
+}
+
+select{
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+#submit{
+  width: 20%;
+  height: 30px;
+  float: right;
+  margin-top: 4.5%;
+  border-radius: 5px;
+  border: none;
+}
+
+#box{
+  background-color: #ffeded;
+  border: 1px solid grey;
+  margin-left: 3%;
+}

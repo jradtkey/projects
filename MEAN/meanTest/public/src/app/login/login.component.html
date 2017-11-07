@@ -1,0 +1,14 @@
+<h1>Q & A</h1>
+
+<div class="input">
+
+
+  <form name="formData" #formData="ngForm" (submit)="onSubmit(formData)">
+    <label>Username:&nbsp;</label>
+    <input name='user' [(ngModel)]='user.user' #user='ngModel' required>
+    <button type="submit" class="btn btn-success" [disabled]="!(user.valid)">Login</button>
+  </form>
+
+
+</div>
+<span *ngIf="!user.valid && user.dirty">Name required.<br><br></span>

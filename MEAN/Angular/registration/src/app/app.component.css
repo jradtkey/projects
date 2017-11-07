@@ -1,0 +1,27 @@
+.wrapper{
+  padding: 3% 5% 3% 5%;
+}
+
+h1{
+  font-size: 3.5em;
+}
+
+#block{
+  border: 1px solid grey;
+}
+
+#box{
+  border: 1px dotted red;
+}
+
+.form-group{
+  float: right;
+}
+
+#submit{
+  float: right;
+}
+
+span{
+  color: red;
+}

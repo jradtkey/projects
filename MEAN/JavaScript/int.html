@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Intermediate</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+
+  //Part 1
+    // function starString(num) {
+    //   let stars = "";
+    //   for (var i = 0; i < num; i++) {
+    //     stars += "*";
+    //   }
+    //   return stars;
+    // }
+    //
+    // let stars = starString(8);
+    // console.log(stars);
+  //end
+
+  //Part 2/3
+  function drawStars(arr) {
+    let line = "";
+    for (var i = 0; i < arr.length+1; i++) {
+      if (Number.isInteger(arr[i])) {
+        for (var j = 0; j < arr[i]; j++) {
+          line += "*";
+        }
+        line += "\n"
+      }
+      else {
+        let string = "";
+        string = arr[i];
+        for (let a = 0; a < arr[i].length; a++) {
+          line += arr[i][0].toLowerCase();
+        }
+        line += "\n"
+      }
+    }
+    return line;
+  }
+  let string = drawStars([4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"]);
+  console.log(string);
+  //end
+
+  </script>
+</html>

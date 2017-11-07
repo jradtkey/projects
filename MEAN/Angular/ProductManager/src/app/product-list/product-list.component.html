@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Puppy List</h1><br>
+    <span *ngIf="products.length < 1">No puppies yet. Click "Puppy Creation" to add one!</span>
+    <div class="row">
+
+      <div class="col-sm-6 col-md-6" id="product" *ngFor='let product of products; let idx = index'>
+        <img [src]="product.image" id="image">
+        <h3>{{product.name}}</h3>
+        <h3>{{product.price}}</h3>
+        <a class="btn btn-warning" [routerLink]="['edit', idx]">Edit</a><br>
+        <a class="btn btn-danger" (click)="delete(idx)" type="button">Delete</a>
+      </div>
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Query</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style media="screen">
+      #box{
+        width: 100px;
+        height: 100px;
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+  </body>
+  <script type="text/javascript">
+    $(document).ready(function(){
+    function $Dojo(id) {
+
+      this.myId = document.getElementById(id);
+      this.click = function (callback) {
+        this.myId.addEventListener("click", callback);
+      };
+
+      this.hover = function (hoverin, hoverout){
+        this.myId.addEventListener("mouseover", hoverin);
+        this.myId.addEventListener("mouseout", hoverout);
+      };
+      return this;
+    }
+
+    $Dojo("box").click(function() { console.log("The button was clicked!") });
+    $Dojo("box").hover(function() { console.log("The button was hovered on!") });
+  });
+  </script>
+</html>

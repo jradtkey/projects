@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hint</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <button type="button" name="button" id="btn">Click to show name</button>
+  </body>
+  <script type="text/javascript">
+  $(document).ready(function () {
+
+    var btn = document.getElementById("btn");
+    btn.addEventListener("click", whatToDoOnClick);
+    // here we define the whatToDoOnClick function
+    function whatToDoOnClick() {
+      $.get("https://api.github.com/users/jradtkey", displayName)
+      function displayName(data) {
+        console.log(data.name);
+        alert(data.name);
+      };
+    }
+
+  })
+  </script>
+</html>

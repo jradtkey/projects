@@ -1,0 +1,28 @@
+.wrapper {
+  padding: 3%;
+  background-color: #f4f4f4;
+}
+
+#form {
+  background-color: white;
+  text-align: center;
+  padding: 3%;
+}
+
+label {
+  font-size: 2em;
+}
+
+input {
+  width: 75%;
+  height: 50px;
+  font-size: 1.5em;
+}
+
+button {
+  width: 10%;
+  font-size: 1.5em;
+}
+span {
+  color: red;
+}

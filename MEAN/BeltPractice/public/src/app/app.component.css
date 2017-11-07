@@ -1,0 +1,11 @@
+.wrapper {
+  padding: 3%;
+}
+
+#nav {
+  text-align: center;
+}
+
+#nav h1 {
+  font-size: 60px;
+}

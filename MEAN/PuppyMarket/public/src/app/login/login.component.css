@@ -1,0 +1,66 @@
+h2{
+  color: #21a9ff;
+  margin-left: 5%;
+}
+
+#day {
+  width: 90%;
+  border: 1.5px solid grey;
+  margin-left: 5%;
+  border-radius: 4px;
+}
+
+img {
+  margin-top: 7%;
+  width: 100%;
+}
+
+.vertical-center {
+  position: absolute;
+}
+
+#content {
+  margin-left: 2%;
+}
+
+#content p {
+  font-size: 1.15em;
+}
+
+#price {
+  margin-top: 3%;
+}
+
+#login {
+  border: 1.5px solid grey;
+  padding-left: 2.5%;
+  border-radius: 4px;
+  margin-left: 35%;
+}
+
+input {
+  width: 95%;
+  height: 40px;
+  border-radius: 4px;
+  border-style: groove;
+}
+button {
+  width: 95%;
+  height: 40px;
+  border-radius: 4px;
+}
+
+#signup {
+  border: 1.5px solid grey;
+  padding-left: 3.5%;
+  border-radius: 4px;
+  margin-left: 20%;
+}
+
+p{
+  font-size: 1.25em;
+}
+
+span {
+  color: red;
+}

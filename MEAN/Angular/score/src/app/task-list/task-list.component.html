@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-sm-5 col-md-5 col-lg-5" id="input">
+          <h1>GitHub Score</h1><br>
+
+          <form name='form'novalidate class="form-inline" role="form" #formData="ngForm" (submit)="onSubmit()">
+            <div class="form-group">
+              <label for="user">GitHub Username:</label>
+              <input placeholder="username" type="text" name="user" required [(ngModel)]="user"
+                class="form-control">
+            </div><br><br>
+            <button type="submit" id="submit">Calculate GitHub Score</button><br><br>
+          </form>
+
+        </div>
+
+        <div class="col-sm-6 col-md-6 col-lg-6" id="out">
+          <div *ngIf="userExists===true">
+            <h1>Your Score: {{score}}</h1><br>
+            <h3 *ngIf="score < 20" style="color:red;">Needs Work!</h3>
+            <h3 *ngIf="score >= 20 && score < 50" style="color:orange;">A decent Start!</h3>
+            <h3 *ngIf="score >= 50 && score < 100" style="color:black;">Doing Good!</h3>
+            <h3 *ngIf="score >= 100 && score < 200" style="color:green;">Great Job!</h3>
+            <h3 *ngIf="score >= 200" style="color:blue;">GitHub Elite!</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div *ngIf="userExists === false">
+      <h3>User does not exist, pick a different github username.</h3>
+    </div>
+
+  </body>
+</html>

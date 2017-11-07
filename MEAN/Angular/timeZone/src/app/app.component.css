@@ -1,0 +1,12 @@
+.wrapper{
+  padding: 5% 3% 5% 3%;
+  text-align: center;
+}
+
+#none{
+  display: none;
+}
+
+.selected{
+  background: yellow;
+}

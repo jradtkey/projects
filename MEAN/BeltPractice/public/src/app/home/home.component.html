@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="input">
+      <form name="formData" #formData="ngForm" (submit)="onSubmit(formData)">
+        <label>Name:&nbsp;</label>
+        <input name='user' [(ngModel)]='poll.user' #user='ngModel' minlenth=3>
+        <span *ngIf="!user.valid && user.dirty">Name required.<br><br></span>
+        <button type="submit" class="btn btn-success" [disabled]="!formData.valid" [routerLink]="['dashboard', poll.user]">Login</button>
+      </form>
+    </div>
+
+  </body>
+</html>

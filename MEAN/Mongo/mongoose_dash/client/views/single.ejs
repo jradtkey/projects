@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mongoose Animal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style media="screen">
+      .wrapper{
+        padding: 3% 5% 3% 5%;
+      }
+      h1{
+        font-size: 3.5em;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <h1>Animal:</h1><h2><%= data.name %></h2>
+        </div>
+        <h1>Updated At:</h1><h2><%= data.updated_at %></h2>
+      </div><br>
+      <a href="/" class="btn btn-primary" role="button">Back To All Animals</a>
+    </div>
+
+  </body>
+</html>

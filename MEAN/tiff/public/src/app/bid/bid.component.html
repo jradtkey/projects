@@ -1,0 +1,21 @@
+<form name="formData" #formData="ngForm" (submit)="onSubmit(formData)">
+
+  Bid:
+  <input type="number" name='bid' [(ngModel)]='product1.bid' #bid='ngModel'>
+  <button type="submit" [disabled]="product1.bid-1 < highest">Bid</button>
+
+
+  <p *ngIf="(product1.bid-1 < highest)">There are bids higher</p>
+
+
+
+</form>
+
+<button (click)="delete()">Delete</button>
+
+
+
+<div *ngFor="let bid of bids">
+  <p>{{bid.name}}</p>
+  <p>{{bid.bid}}</p>
+</div>

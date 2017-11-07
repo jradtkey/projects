@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Switchboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <div class="row">
+        <h1>{{title}}</h1>
+      </div>
+
+      <div class="row">
+        <div class="box" *ngFor="let switch of switchArray; let btn = index">
+
+            <button *ngIf='switch' [ngClass]="{'on': switch}" (click)="makeGreen(btn)">On</button>
+
+            <button *ngIf='!switch' [ngClass]="{'on': switch}" (click)="makeGreen(btn)">Off</button>
+
+        </div>
+      </div>
+
+        <!-- <div class="box" *ngIf='!switch2' (click)="makeGreen('btn2')"><button type="button" name="btn2" id="next_selected">Off</button></div>
+        <div class="box" *ngIf='switch2' (click)="makeGreen('btn2')"><button type="button" name="btn2" id="selected">On</button></div>
+
+        <div class="box" *ngIf='!switch3' (click)="makeGreen('btn3')"><button type="button" name="btn3" id="next_selected">Off</button></div>
+        <div class="box" *ngIf='switch3' (click)="makeGreen('btn3')"><button type="button" name="btn3" id="selected">On</button></div>
+
+        <div class="box" *ngIf='!switch4' (click)="makeGreen('btn4')"><button type="button" name="btn4" id="next_selected">Off</button></div>
+        <div class="box" *ngIf='switch4' (click)="makeGreen('btn4')"><button type="button" name="btn4" id="selected">On</button></div> -->
+
+
+    </div>
+  </body>
+</html>

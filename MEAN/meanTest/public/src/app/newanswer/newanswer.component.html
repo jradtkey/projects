@@ -1,0 +1,27 @@
+<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+<div class="row">
+  <a [routerLink]="['dashboard']" id="home">Home</a>
+  <a [routerLink]="['/']">Back To Question</a>
+  <a (click)="onClick()" id="logout">Logout</a>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-md-6 col-lg-6">
+  <h1>{{question.question}}</h1>
+  <h3>{{question.description}}</h3><br><br>
+  {{question._id}}
+  <form name="formData" #formData="ngForm" (submit)="onSubmit(formData)">
+    <label>Your Answer:&nbsp;</label><br><br>
+    <input name='answer' [(ngModel)]='answer.answer' #answer='ngModel' required minlenth=5><br><br>
+
+    <label>Supporting details for your answer (optional):&nbsp;</label><br><br>
+    <input name='details' [(ngModel)]='answer.details' #details='ngModel'><br><br>
+    <input type="hidden" name='questionID' [(ngModel)]='answer.questionID' #questionID='ngModel' value={{question._id}}>
+
+    <button type="submit" name="button" class="btn btn-danger" [routerLink]="['dashboard']">Cancel</button>
+    <button type="submit" name="button" class="btn btn-success" [disabled]="!(answer.valid)">Submit</button>
+  </form>
+  </div>
+</div>
+<span *ngIf="!answer.valid && answer.dirty">Answer needs to be 5 characters.<br><br></span>

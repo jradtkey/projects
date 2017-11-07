@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Basicsc</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+
+  function magicMultiply(x, y) {
+
+    if (x.constructor === Array) {
+      for (let i = 0; i < x.length; i++) {
+        x[i] = x[i] * y
+      }
+      return x;
+    }
+
+    if (x.constructor === String) {
+      let newString = "";
+      for (var i = 0; i < y+1; i++) {
+        newString += x;
+      }
+    return newString;
+    }
+
+    }
+    const test3 = magicMultiply([1, 2, 3], 2);
+    const test5 = magicMultiply("Brendo", 4);
+
+    console.log(test3);
+    console.log(test5);
+  </script>
+</html>

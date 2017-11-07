@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Event</title>
+  </head>
+  <body>
+    <button type="button" name="button" id="button">This is a button.</button>
+  </body>
+  <script type="text/javascript">
+  // Link our variable "button" to a DOM element
+  var button = document.getElementById("button")
+  // add a DOM eventListener to that variable.
+  button.addEventListener("click", whatToDoOnClick);
+  // here we define the whatToDoOnClick function
+  function whatToDoOnClick() {
+  alert("You Did it!")
+  }
+  </script>
+</html>

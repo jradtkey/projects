@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mongoose</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <style media="screen">
+      .wrapper{
+        padding: 3% 5% 3% 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <% data.forEach(function(data) { %>
+        <h3>Name: <%= data.name %></h3>
+        <h4>Email: <%= data.age %></h4>
+        <hr>
+      <% }); %>
+
+      <form class="" action="/users" method="post">
+        <label for="">Name:</label><input type="text" name="name" value="">
+        <label for="">Age:</label><input type="text" name="age" value="">
+        <button type="submit" name="button">Submit</button>
+      </form>
+
+    </div>
+  </body>
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+
+    })
+  </script>
+</html>

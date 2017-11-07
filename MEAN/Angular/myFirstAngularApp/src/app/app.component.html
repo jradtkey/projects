@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title | uppercase}}!
+  </h1>
+
+  <form (submit)="onSubmit()">
+    <input
+      type="text"
+      name="firstName"
+      required
+      minlength="4"
+      maxlength="24"
+      [(ngModel)] = 'user.firstName'
+      #firstName="ngModel"
+     >
+    <input type="text" name="lastName" [(ngModel)] = 'user.lastName' class="ng-invalid ng-valid ng-untouched ng-touched ng-dirty ng-pristine">
+    <input type="submit">
+  </form><br>
+
+  {{users | json}}
+  <p>{{firstName.errors | json}}</p>
+  <p *ngIf="!firstName.valid">First Name Required</p>
+
+</div>

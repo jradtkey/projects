@@ -1,0 +1,10 @@
+.wrapper{
+  padding: 3% 5% 3% 5%;
+}
+
+.box {
+  height: 50px;
+  width: 50px;
+  border: 1px solid grey;
+  display: inline-block;
+}

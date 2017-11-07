@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cards</title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+    class Deck {
+      constructor() {
+        this.suit = ["diamonds", "spades", "hearts", "clubs"];
+        this.card = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king", "ace"];
+        this.deck = [];
+        for (let i = 0; i < this.suit.length; i++) {
+          for (let j = 0; j < this.card.length; j++) {
+            this.deck.push(this.suit[i] + this.card[j])
+          }
+        }
+        console.log(this.deck);
+        return this;
+      }
+
+      shuffle(){
+        for (let a = this.deck.length-1; a > 0; a--) {
+          let num = Math.floor(Math.random() * (a+1));
+          let temp = this.deck[a];
+          this.deck[a] = this.deck[num];
+          this.deck[num] = temp;
+        }
+        console.log(this.deck);
+        return this;
+      }
+      reset(){
+        for (let i = 0; i < this.suit.length; i++) {
+          for (let j = 0; j < this.card.length; j++) {
+            this.deck.pop(this.suit[i] + this.card[j])
+          }
+        }
+        for (let i = 0; i < this.suit.length; i++) {
+          for (let j = 0; j < this.card.length; j++) {
+            this.deck.push(this.suit[i] + this.card[j])
+          }
+        }
+        console.log(this.deck);
+        return this;
+      }
+      deal(){
+        let dealt = this.deck.pop();
+        console.log(dealt);
+        return dealt;
+      }
+    }
+
+    class Player {
+      constructor(name) {
+        this.name = name
+        this.hand = [];
+      }
+      takeCard(deck){
+        this.hand.push(deck.deal());
+        console.log(this.hand);
+      }
+      discard(deck){
+        this.hand.pop();
+        console.log(this.hand);
+      }
+    }
+
+    let newDeck = new Deck();
+    newDeck.shuffle().deal();
+    let player1 = new Player("bob");
+    player1.takeCard(newDeck);
+    player1.discard();
+
+  </script>
+</html>

@@ -1,0 +1,15 @@
+.red {
+  background-color: red;
+  font-size: 20px;
+}
+
+.bold { font-weight: bold }
+
+.on { background-color: yellow; }
+
+.ng-invalid { }
+.ng-valid { }
+.ng-untouched { }
+.ng-touched { }
+.ng-dirty { }
+.ng-pristine { }
