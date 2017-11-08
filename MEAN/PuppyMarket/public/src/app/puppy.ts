@@ -5,6 +5,7 @@ export class Puppy {
   description: string;
   price: number;
   location: string;
+  user_id: string;
 
   constructor(image, name, description, price, location){
     this.image = image;

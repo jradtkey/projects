@@ -7,7 +7,7 @@ var PuppySchema = new mongoose.Schema({
   descritption: {type: String, required: true},
   price: {type: Number, required: true},
   location: {type: String, required: true},
-  _user: {type: Schema.Types.ObjectId, ref: 'User'},
+  _user: {type: Schema.Types.ObjectId, ref: 'User'}
 })
 
 var Puppy = mongoose.model('Puppy', PuppySchema);

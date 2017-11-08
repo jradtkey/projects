@@ -14,17 +14,15 @@ const routes: Routes = [
   },
 
   {
-    path: 'browse',
+    path: 'browse/:id',
     pathMatch: 'full',
     component: BrowseComponent,
     children: []
   },
 
   {
-    path: 'browse/mylistings',
-    pathMatch: 'full',
+    path: 'browse/:id/mylistings',
     component: MyListingsComponent,
-    children: []
   },
 
 ];

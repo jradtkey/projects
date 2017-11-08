@@ -15,9 +15,9 @@ export class LoginComponent implements OnInit {
   user: User = new User("","","","");
   users = [];
   login = true;
-  singleUser;
   exists = false;
-  userId;
+  credentials = true;
+  userID;
 
   constructor(private _route: ActivatedRoute, private service: TaskService, private router: Router) { }
 
@@ -42,10 +42,21 @@ export class LoginComponent implements OnInit {
 
   }
 
-  checkPassword(password){
-    this.service.checkPassword(password);
-    console.log(password);
-    this.router.navigate(['browse']);
+  checkPassword(password, email){
+    this.service.checkPassword(password, email,
+    (data) => {
+      if(data.json()['user'].length == 0){
+        console.log("INCORRECT CREDENTIALS");
+        this.credentials = false;
+        this.router.navigate(['/']);
+      }
+      else{
+        this.userID = data.json()['user'][0]._id;
+        console.log("COMPONENT",this.userID);
+        this.service.storeID(this.userID); 
+        this.router.navigate(['browse', this.userID]);
+      }
+  });
   }
 
   ngOnInit() {
@@ -53,7 +64,7 @@ export class LoginComponent implements OnInit {
       (res) => {
         this.users = res.json()['users'];
       }
-    ) 
+    )
   }
 
   onClick(){

@@ -14,19 +14,33 @@ export class MyListingsComponent implements OnInit {
   constructor(private _route: ActivatedRoute, private service: TaskService, private router: Router) { }
 
   puppy: Puppy = new Puppy("","","","","");
-  userId;
-
-  // this._route.paramMap.subscribe( params => {
-  //   console.log("USER ID:", params.get('id'));
-  //   this.userId = params.get('id');
-  // });
+  puppies = [];
+  userID;
 
   ngOnInit() {
+    this.userID = this.service.userID;
+
+    this.service.fetchPosts(
+      (res) => {
+        this.puppies = res.json()['puppies'];
+      }
+    )
   }
 
   onSubmit(data){
-    console.log(data.value);
-    this.router.navigate(['/browse/mylistings']);
+    this.puppy.image = "";
+    this.puppy.name = data.value.name;
+    this.puppy.description = data.value.description;
+    this.puppy.price = data.value.price;
+    this.puppy.location = data.value.location;
+    this.puppy.user_id = this.userID;
+    this.service.createPuppy(this.puppy);
+    this.router.navigate(['/browse/mylistings/mylistings']);
+  }
+
+  logOut(){
+    this.service.logOut();
+    this.router.navigate(['/']);
   }
 
 }
