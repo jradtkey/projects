@@ -14,16 +14,29 @@ const routes: Routes = [
   },
 
   {
-    path: 'browse/:id',
-    pathMatch: 'full',
+    path: 'browse',
     component: BrowseComponent,
-    children: []
   },
 
   {
-    path: 'browse/:id/mylistings',
+    path: 'browse/:id',
+    redirectTo: 'listing'
+  },
+
+  {
+    path: 'listing',
     component: MyListingsComponent,
   },
+
+  {
+    path: 'listing/browse',
+    redirectTo: 'browse'
+  },
+
+  // {
+  //   path: 'browse/:id/mylistings',
+  //   component: MyListingsComponent,
+  // },
 
 ];
 

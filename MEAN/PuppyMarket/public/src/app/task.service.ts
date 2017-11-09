@@ -44,6 +44,15 @@ export class TaskService {
     this.userID = data;
   }
 
+  updatePuppy(data, id){
+    console.log("data:", data, "id:", id);
+    this._http.post('/updatePuppy', {puppy: data, id:id}).subscribe(data => {});
+  }
+
+  delete(id){
+    this._http.post('/delete', {id:id}).subscribe(data => {});
+  }
+
   logOut(){
     this.userID = "";
   }

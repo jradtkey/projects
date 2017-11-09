@@ -22,13 +22,17 @@ module.exports = {
 
   createPuppy: function (req, res) {
     console.log(req.body);
-    User.findOne({user_id: req.body.user_id}, function(err, post){
-      var puppy = new Puppy(req.body);
-      puppy._user = req.body.user_id;
-      console.log("POST STUFF", post);
+    User.findOne({_id: req.body.puppy.user_id}, function(err, post){
+      var puppy = new Puppy({image: req.body.puppy.image, name: req.body.puppy.name, description: req.body.puppy.description, price: req.body.puppy.price, location: req.body.puppy.location});
+      puppy._user = req.body.puppy.user_id;
+      console.log("POST STUFF", puppy);
 
+      post.puppies.push(puppy);
       puppy.save(function(err){
-          post.puppies.push(puppy);
+        if (err) {
+          console.log("Puppy error is", err);
+        }
+        else {
           post.save(function(err){
             if (err) {
               console.log("Unable to save puppy");
@@ -37,21 +41,10 @@ module.exports = {
               console.log("Saved puppy");
             }
           })
+        }
       })
 
     })
-    // var puppy = new Puppy({
-    //   image: req.body.image,
-    //   name: req.body.name,
-    //   description: req.body.descrtiption,
-    //   price: req.body.price,
-    //   location: req.body.location,
-    // })
-    // puppy.save(function (err) {
-    //   if (err) {
-    //     console.log(err);
-    //   }
-    // })
   },
 
     index: function(req, res) {
@@ -82,6 +75,27 @@ module.exports = {
           res.json({'user': []});
         }
       })
+    },
+
+    updatePuppy: function(req, res) {
+      console.log("inside controllers", req.body);
+      Puppy.findOne({_id: req.body.id}, function(err, puppy){
+        puppy.image = req.body.puppy.image,
+        puppy.name = req.body.puppy.name,
+        puppy.description = req.body.puppy.description,
+        puppy.price = req.body.puppy.price,
+        puppy.location = req.body.puppy.location,
+        puppy.save(function(err){
+          console.log(err);
+        });
+      });
+    },
+
+    delete: function(req, res) {
+      console.log("inside controllers", req.body);
+      Puppy.remove({_id: req.body.id}, function(err){
+        console.log(err);
+      });
     },
 
   }

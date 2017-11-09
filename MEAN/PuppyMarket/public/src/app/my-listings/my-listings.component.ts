@@ -35,7 +35,22 @@ export class MyListingsComponent implements OnInit {
     this.puppy.location = data.value.location;
     this.puppy.user_id = this.userID;
     this.service.createPuppy(this.puppy);
-    this.router.navigate(['/browse/mylistings/mylistings']);
+    this.router.navigate(['browse']);
+  }
+
+  update(data, id){
+    this.puppy.image = "";
+    this.puppy.name = data.value.name;
+    this.puppy.description = data.value.description;
+    this.puppy.price = data.value.price;
+    this.puppy.location = data.value.location;
+    this.puppy.user_id = this.userID;
+    this.service.updatePuppy(this.puppy, id);
+    this.router.navigate(['browse']);
+  }
+
+  delete(id){
+    this.service.delete(id);
   }
 
   logOut(){

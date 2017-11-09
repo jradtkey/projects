@@ -1,13 +1,34 @@
 <div class="row">
-  <p><a href="#">Browse</a> &nbsp; &nbsp; <b>|</b> &nbsp; &nbsp;<a [routerLink]="['mylistings']">My Listings</a> &nbsp; &nbsp; <b>|</b> &nbsp; &nbsp;<a href="#">Log Off</a></p>
+  <p><a [routerLink]="['browse/browse']">Browse</a> &nbsp; &nbsp; <b>|</b> &nbsp; &nbsp;<a [routerLink]="[userID]">My Listings</a> &nbsp; &nbsp; <b>|</b> &nbsp; &nbsp;<a href="#">Log Off</a></p>
 </div>
-<div class="container">
 
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12" id="search">
+    <div class="col-sm-6 col-md-6 col-lg-6" id="search">
       Search:&nbsp;<input>&nbsp;<button type="button" class="btn btn-primary">Search</button>
     </div>
   </div>
+<br><br>
 
+<div *ngFor="let puppy of puppies">
+
+  <div class="my_listings">
+    <div class="row">
+      <div class="col-md-3 col-lg-3">
+        <img class="vertical-center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBCFRBj2odhUWs68Z_Wgf-5SO3dMWvjHJfWJYPA9VtEJOBvXCxGg" alt="">
+      </div>
+      <div class="col-md-6 col-lg-6" id="content">
+        <h1>{{puppy.name}}</h1>
+        <p>{{puppy.description}}</p>
+      </div>
+      <div class="col-md-2 col-lg-2" id="price">
+        <h1>${{puppy.price}}</h1>
+        <h4>{{puppy.location}}</h4>
+        <button *ngIf="puppy._user == userID" type="button" name="button" class="btn btn-danger" (click)="delete(puppy._id)">Delete</button>
+        <button *ngIf="puppy._user != userID" type="button" name="button" class="btn btn-warning">Contact</button>
+      </div><br>
+    </div>
+  </div><br><br>
 
 </div>
+
+{{puppies | json}}

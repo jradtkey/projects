@@ -13,6 +13,10 @@ span {
   background: #e8e8e8;
 }
 
+#background {
+  background: #e8e8e8;
+}
+
 #desc{
   width: 80%;
   height: 80px;
@@ -31,10 +35,21 @@ input {
   width: 100%;
 }
 
+#content {
+  margin-left: 2%;
+}
+
+#content p {
+  font-size: 1.15em;
+}
+
+#price {
+  margin-top: 3%;
+  margin-left: 2%;
+}
+
 img {
-  width: 90%;
-  margin-top: 7%;
-  margin-left: 4%;
+  width: 100%;
 }
 
 .my_listings {

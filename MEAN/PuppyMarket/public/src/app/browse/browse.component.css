@@ -17,3 +17,26 @@ button {
   margin: 2% 0% 2% 0%;
   font-size: 1.15em;
 }
+
+.my_listings {
+  border: 1.5px solid grey;
+  border-radius: 4px;
+  background: #e8e8e8;
+}
+
+#content {
+  margin-left: 2%;
+}
+
+#content p {
+  font-size: 1.15em;
+}
+
+#price {
+  margin-left: 2%;
+  margin-top: 1%;
+}
+
+img {
+  width: 100%;
+}

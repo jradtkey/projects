@@ -53,8 +53,8 @@ export class LoginComponent implements OnInit {
       else{
         this.userID = data.json()['user'][0]._id;
         console.log("COMPONENT",this.userID);
-        this.service.storeID(this.userID); 
-        this.router.navigate(['browse', this.userID]);
+        this.service.storeID(this.userID);
+        this.router.navigate(['browse']);
       }
   });
   }
