@@ -1,5 +1,5 @@
 <div class="row">
-  <p><a [routerLink]="['browse']">Browse</a> &nbsp; &nbsp; <b>|</b> &nbsp; &nbsp;<a [routerLink]="['mylistings']">My Listings</a> &nbsp; &nbsp; <b>|</b> &nbsp; &nbsp;<a (click)="logOut()">Log Off</a></p>
+  <p><a [routerLink]="['browse']">Browse</a> &nbsp; &nbsp; <b>|</b> &nbsp; &nbsp;<a [routerLink]="['mylistings']">My Listings</a> &nbsp; &nbsp; <b>|</b> &nbsp; &nbsp;<a (click)="logOut()">Log Out</a></p>
 </div>
 
 <div class="row" id="new_listing">
@@ -13,10 +13,10 @@
 
     <div class="col-md-6 col-lg-6">
       <h5>Name:</h5>
-      <input name="name" placeholder="name" [(ngModel)]='puppy.name' #name='ngModel' required>
+      <input name="name" placeholder="name" [(ngModel)]='puppy.name' #name='ngModel' required><br>
       <span *ngIf="!name.valid && name.dirty">Don't forget to name your puppy :)</span>
       <h5>Description:</h5>
-      <input name="description" placeholder="description" [(ngModel)]='puppy.description' #description='ngModel' required id="desc">
+      <input name="description" placeholder="description" [(ngModel)]='puppy.description' #description='ngModel' required id="desc"><br>
       <span *ngIf="!description.valid && description.dirty">Please provide a description.</span>
       <br><br>
     </div>
@@ -36,7 +36,8 @@
 <div id="background">
   <h2>Edit Listings</h2>
   <div *ngFor="let puppy of puppies">
-    <div *ngIf="puppy._user == userID">
+    <div class="row" id="border">
+    <div *ngIf="puppy._user == userID" class="row">
       <form name="formData" #formData="ngForm" (submit)="update(formData, puppy._id)">
         <div class="col-md-3 col-lg-3">
           <h4>Image Upload</h4>
@@ -45,10 +46,10 @@
 
           <div class="col-md-6 col-lg-6">
             <h5>Name:</h5>
-            <input name="name" placeholder="name" [(ngModel)]='puppy.name' #name='ngModel' required placeholder="{{puppy.name}}">
+            <input name="name" placeholder="name" [(ngModel)]='puppy.name' #name='ngModel' required placeholder="{{puppy.name}}"><br>
             <span *ngIf="!name.valid && name.dirty">Don't forget to name your puppy :)</span>
             <h5>Description:</h5>
-            <input name="description" placeholder="description" [(ngModel)]='puppy.description' #description='ngModel' required id="desc" placeholder="{{puppy.description}}">
+            <input name="description" placeholder="description" [(ngModel)]='puppy.description' #description='ngModel' required id="desc" placeholder="{{puppy.description}}"><br>
             <span *ngIf="!description.valid && description.dirty">Please provide a description.</span>
             <br><br>
           </div>
@@ -59,10 +60,15 @@
             <h5>Location:</h5>
             <input name="location" [(ngModel)]='puppy.location' #location='ngModel' required placeholder="{{puppy.location}}"><br><br>
             <span *ngIf="!location.valid && location.dirty">Where is your puppy located?</span>
-            <button type="submit" name="submit" class="btn btn-warning">Update</button><br><br>
-            <button name="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-warning" [disabled]="!formData.dirty">Update</button>
           </div>
         </form>
+    </div>
+    <div *ngIf="puppy._user == userID" class="row">
+      <div class="col-md-2 col-lg-2 col-lg-offset-9 col-md-offset-9" id="details">
+        <button class="btn btn-danger" (click)="delete(puppy._id)">Delete</button>
+      </div><br><br>
+    </div>
     </div>
   </div>
 </div>

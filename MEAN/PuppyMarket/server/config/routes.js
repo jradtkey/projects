@@ -3,10 +3,11 @@ var UserController = require('./../controllers/controllers.js');
 module.exports = function(app) {
 
   app.post('/createusers', (req, res, next) => {
-    UserController.create(req,res);
+    UserController.createUser(req,res);
   });
 
   app.post('/createPuppy', (req, res, next) => {
+    console.log("creating puppy in ROUTES");
     UserController.createPuppy(req,res);
   });
 
@@ -20,6 +21,8 @@ module.exports = function(app) {
   });
 
   app.get('/users', UserController.index);
+
+  app.get('/userID', UserController.index);
 
   app.get('/posts', UserController.posts);
 

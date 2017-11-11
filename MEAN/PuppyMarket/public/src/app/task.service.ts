@@ -31,7 +31,7 @@ export class TaskService {
   }
 
   createPuppy(puppy:Puppy){
-    console.log("inside service", puppy);
+    console.log("creating pup in service");
     this._http.post('/createPuppy', {puppy: puppy, id:this.userID}).subscribe(data => {});
   }
 
@@ -45,12 +45,12 @@ export class TaskService {
   }
 
   updatePuppy(data, id){
-    console.log("data:", data, "id:", id);
     this._http.post('/updatePuppy', {puppy: data, id:id}).subscribe(data => {});
   }
 
   delete(id){
-    this._http.post('/delete', {id:id}).subscribe(data => {});
+    confirm("Are you sure you want to delete your little pup?");
+    this._http.post('/delete', {id:id, userID:this.userID}).subscribe(data => {});
   }
 
   logOut(){

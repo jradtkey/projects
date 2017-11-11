@@ -17,6 +17,7 @@ export class MyListingsComponent implements OnInit {
   puppies = [];
   userID;
 
+
   ngOnInit() {
     this.userID = this.service.userID;
 
@@ -34,8 +35,17 @@ export class MyListingsComponent implements OnInit {
     this.puppy.price = data.value.price;
     this.puppy.location = data.value.location;
     this.puppy.user_id = this.userID;
+    console.log("CREATE pup in COMPONENT")
     this.service.createPuppy(this.puppy);
-    this.router.navigate(['browse']);
+    this.service.fetchPosts(
+      (res) => {
+        this.puppies = res.json()['puppies'];
+      }
+    )
+
+    this.router.navigate(['listing']);
+    this.puppy = new Puppy("","","","","");
+
   }
 
   update(data, id){
@@ -45,12 +55,25 @@ export class MyListingsComponent implements OnInit {
     this.puppy.price = data.value.price;
     this.puppy.location = data.value.location;
     this.puppy.user_id = this.userID;
+    console.log("UPDATE pup in COMPONENT")
     this.service.updatePuppy(this.puppy, id);
-    this.router.navigate(['browse']);
+    this.puppy = new Puppy("","","","","");
+
+    this.service.fetchPosts(
+      (res) => {
+        this.puppies = res.json()['puppies'];
+      }
+    )
+    this.router.navigate(['listing']);
   }
 
   delete(id){
     this.service.delete(id);
+    this.service.fetchPosts(
+      (res) => {
+        this.puppies = res.json()['puppies'];
+      }
+    )
   }
 
   logOut(){

@@ -13,13 +13,24 @@ import { ActivatedRoute } from '@angular/router';
 export class BrowseComponent implements OnInit {
 
   puppies = [];
+  users = [];
   userID;
+  deleted =[];
 
   constructor(private _route: ActivatedRoute, private service: TaskService, private router: Router) { }
 
   ngOnInit() {
     this.userID = this.service.userID;
+    this.fetchPuppies();
+    this.fetchUsers();
+  }
 
+  delete(id){
+    this.service.delete(id);
+    this.fetchPuppies();
+  }
+
+  fetchPuppies(){
     this.service.fetchPosts(
       (res) => {
         this.puppies = res.json()['puppies'];
@@ -27,8 +38,17 @@ export class BrowseComponent implements OnInit {
     )
   }
 
-  delete(id){
-    this.service.delete(id);
+  fetchUsers(){
+    this.service.fetchUsers(
+      (res) => {
+        this.users = res.json()['users'];
+      }
+    )
+  }
+
+  logOut(){
+    this.service.logOut();
+    this.router.navigate(['/']);
   }
 
 }

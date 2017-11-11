@@ -1,5 +1,5 @@
 <div class="row">
-  <p><a [routerLink]="['browse/browse']">Browse</a> &nbsp; &nbsp; <b>|</b> &nbsp; &nbsp;<a [routerLink]="[userID]">My Listings</a> &nbsp; &nbsp; <b>|</b> &nbsp; &nbsp;<a href="#">Log Off</a></p>
+  <p><a [routerLink]="['browse/browse']">Browse</a> &nbsp; &nbsp; <b>|</b> &nbsp; &nbsp;<a [routerLink]="[userID]">My Listings</a> &nbsp; &nbsp; <b>|</b> &nbsp; &nbsp;<a (click)="logOut()">Log Out</a></p>
 </div>
 
   <div class="row">
@@ -10,6 +10,8 @@
 <br><br>
 
 <div *ngFor="let puppy of puppies">
+
+
 
   <div class="my_listings">
     <div class="row">
@@ -29,6 +31,9 @@
     </div>
   </div><br><br>
 
+
+
 </div>
 
-{{puppies | json}}
+<h1>USERS:</h1>
+{{users | json}}
