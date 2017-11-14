@@ -14,10 +14,13 @@ export class LoginComponent implements OnInit {
 
   user: User = new User("","","","");
   users = [];
+  puppies = [];
   login = true;
   exists = false;
   credentials = true;
   userID;
+  random;
+  puppy;
 
   constructor(private _route: ActivatedRoute, private service: TaskService, private router: Router) { }
 
@@ -60,15 +63,18 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.fetchUsers(
+    this.service.fetchPosts(
       (res) => {
-        this.users = res.json()['users'];
+        this.puppies = res.json()['puppies'];
+        this.random = Math.floor(Math.random()*this.puppies.length);
+        this.puppy = this.puppies[this.random];
       }
     )
   }
 
   onClick(){
     this.login = false;
+    console.log("random number:",this.random);
   }
 
   onSign(){

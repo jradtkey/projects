@@ -1,3 +1,7 @@
+.body {
+
+}
+
 h2{
   color: #21a9ff;
   margin-left: 5%;
@@ -8,6 +12,7 @@ h2{
   border: 1.5px solid grey;
   margin-left: 5%;
   border-radius: 4px;
+  background-color: white;
 }
 
 img {
@@ -31,6 +36,8 @@ img {
   border: 1.5px solid grey;
   padding-left: 2.5%;
   border-radius: 4px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  background-color: white;
 }
 
 input {
@@ -49,6 +56,8 @@ button {
   border: 1.5px solid grey;
   padding-left: 3.5%;
   border-radius: 4px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  background-color: white;
 }
 
 p{

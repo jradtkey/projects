@@ -16,13 +16,14 @@
       <input name="name" placeholder="name" [(ngModel)]='puppy.name' #name='ngModel' required><br>
       <span *ngIf="!name.valid && name.dirty">Don't forget to name your puppy :)</span>
       <h5>Description:</h5>
-      <input name="description" placeholder="description" [(ngModel)]='puppy.description' #description='ngModel' required id="desc"><br>
+      <textarea name="description" placeholder="description" [(ngModel)]='puppy.description' #description='ngModel' required maxlength="315" id="desc"></textarea><br>
+      <span>({{description.value.length}}/315)</span>
       <span *ngIf="!description.valid && description.dirty">Please provide a description.</span>
       <br><br>
     </div>
     <div class="col-md-2 col-lg-2" id="details">
       <h5>Price:</h5>
-      <input name="price" [(ngModel)]='puppy.price' #price='ngModel' required>
+      <input name="price" [(ngModel)]='puppy.price' #price='ngModel' required minlength="1">
       <span *ngIf="!price.valid && price.dirty">Price required</span>
       <h5>Location:</h5>
       <input name="location" [(ngModel)]='puppy.location' #location='ngModel' required><br><br>
@@ -49,7 +50,7 @@
             <input name="name" placeholder="name" [(ngModel)]='puppy.name' #name='ngModel' required placeholder="{{puppy.name}}"><br>
             <span *ngIf="!name.valid && name.dirty">Don't forget to name your puppy :)</span>
             <h5>Description:</h5>
-            <input name="description" placeholder="description" [(ngModel)]='puppy.description' #description='ngModel' required id="desc" placeholder="{{puppy.description}}"><br>
+            <textarea name="description" placeholder="description" [(ngModel)]='puppy.description' #description='ngModel' required maxlength="315" id="desc" placeholder="{{puppy.description}}"></textarea><br>
             <span *ngIf="!description.valid && description.dirty">Please provide a description.</span>
             <br><br>
           </div>

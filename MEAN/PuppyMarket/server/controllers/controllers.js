@@ -13,31 +13,36 @@ module.exports = {
       email: req.body.email,
       password: password
     })
-    // user.save(function (err) {
-    //   if (err) {
-    //     console.log(err);
-    //   }
-    // })
+    user.save(function (err) {
+      if (err) {
+        console.log(err);
+          res.json({err:"error"});
+      }
+      else {
+        res.json({saved: "save"})
+      }
+    })
   },
 
   createPuppy: function (req, res) {
     User.findOne({_id: req.body.puppy.user_id}, function(err, post){
       var puppy = new Puppy({image: "", name: req.body.puppy.name, description: req.body.puppy.description, price: req.body.puppy.price, location: req.body.puppy.location});
       puppy._user = req.body.puppy.user_id;
-      console.log("POST STUFF", puppy);
+      console.log("CONTROLLER", puppy);
 
       post.puppies.push(puppy);
       puppy.save(function(err){
         if (err) {
-          console.log("Puppy error is", err);
+          res.json({err:err});
         }
         else {
           post.save(function(err){
             if (err) {
               console.log("Unable to save puppy");
+              res.json({err:err});
             }
             else {
-              console.log("Saved puppy");
+              res.json({success:"success"});
             }
           })
         }
@@ -81,7 +86,12 @@ module.exports = {
         puppy.price = req.body.puppy.price,
         puppy.location = req.body.puppy.location,
         puppy.save(function(err){
-          console.log(err);
+          if (err) {
+            res.json({err:err})
+          }
+          else {
+            res.json({updated:"updated"})
+          }
         });
       });
     },
@@ -98,12 +108,22 @@ module.exports = {
         }
         console.log("puppies array:", user.puppies);
         user.save(function (err) {
-          console.log(err);
+          // if (err) {
+          //   res.json({err:err})
+          // }
+          // else {
+          //   res.json({delete:"deleted"})
+          // }
         })
       });
 
       Puppy.remove({_id: req.body.id}, function(err){
-        console.log(err);
+        if (err) {
+          res.json({err: err})
+        }
+        else {
+          res.json({removed:"removed"})
+        }
       });
     },
 

@@ -43,6 +43,10 @@ export class TaskService {
   storeID(data){
     this.userID = data;
   }
+  sendID(data){
+    this.userID = data;
+    console.log("inside service", this.userID);
+  }
 
   updatePuppy(data, id){
     this._http.post('/updatePuppy', {puppy: data, id:id}).subscribe(data => {});

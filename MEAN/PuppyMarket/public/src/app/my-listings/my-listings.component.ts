@@ -37,14 +37,13 @@ export class MyListingsComponent implements OnInit {
     this.puppy.user_id = this.userID;
     console.log("CREATE pup in COMPONENT")
     this.service.createPuppy(this.puppy);
+    this.router.navigate(['listing']);
     this.service.fetchPosts(
       (res) => {
         this.puppies = res.json()['puppies'];
+        data.reset();
       }
     )
-
-    this.router.navigate(['listing']);
-    this.puppy = new Puppy("","","","","");
 
   }
 
@@ -57,14 +56,13 @@ export class MyListingsComponent implements OnInit {
     this.puppy.user_id = this.userID;
     console.log("UPDATE pup in COMPONENT")
     this.service.updatePuppy(this.puppy, id);
-    this.puppy = new Puppy("","","","","");
-
+    this.router.navigate(['listing']);
     this.service.fetchPosts(
       (res) => {
         this.puppies = res.json()['puppies'];
+        data.reset();
       }
     )
-    this.router.navigate(['listing']);
   }
 
   delete(id){

@@ -16,6 +16,7 @@ span {
 #background {
   background: #e8e8e8;
   padding: 1%;
+  border-radius: 4px;
 }
 
 #desc{
@@ -24,7 +25,6 @@ span {
 }
 
 #border {
-  border-top: 1.5px solid grey;
   border-radius: 10px;
   padding: 1%;
 }

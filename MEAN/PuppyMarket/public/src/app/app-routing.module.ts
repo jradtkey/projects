@@ -24,12 +24,27 @@ const routes: Routes = [
   },
 
   {
+    path: 'browse/browse',
+    redirectTo: 'listing'
+  },
+
+  {
+    path: 'listing/mylistings',
+    redirectTo: 'listing'
+  },
+
+  {
     path: 'listing',
     component: MyListingsComponent,
   },
 
   {
     path: 'listing/browse',
+    redirectTo: 'browse'
+  },
+
+  {
+    path: 'browse/browse/browse',
     redirectTo: 'browse'
   },
 
